@@ -3,5 +3,10 @@ body {
 }
 
 #game-card {
-    background-color: whitesmoke;
+    background-color: #f5f1cb;
+    height: 740px;
+}
+
+#picture {
+    max-width: 500px;
 }

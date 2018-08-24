@@ -2,6 +2,12 @@ body {
     background-image: url(../images/bananas.png);
 }
 
+#game-title {
+    font-family: 'Metamorphous', cursive;
+    font-size: 48px;
+    color: #40382D;
+}
+
 #game-card {
     background-color: #f5f1cb;
     height: 740px;
@@ -9,4 +15,43 @@ body {
 
 #picture {
     max-width: 500px;
+}
+
+#start-button {
+    font-family: 'Ubuntu', sans-serif;
+    color: #40382D;
+    background-color: #c0e8e3;
+    border: 3px solid #40382D;
+}
+
+#start-button:hover {
+    background-color: #9EBFBB;
+}
+
+.answers {
+    font-family: 'Ubuntu', sans-serif;
+    color: #40382D;
+    background-color: #c0e8e3;
+}
+
+.answers:hover {
+    background-color: #9EBFBB;
+}
+
+#time-remaining {
+    font-family: 'Ubuntu', sans-serif;
+    color: #40382D;
+    font-size: 19px;
+}
+
+.correct-answer {
+    font-family: 'Ubuntu', sans-serif;
+    color: #40382D;
+    font-size: 19px;
+}
+
+#question-text {
+    font-family: 'Ubuntu', sans-serif;
+    color: #40382D;
+    font-size: 24px;
 }

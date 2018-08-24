@@ -1,19 +1,3 @@
-//object for game with array of objects for question bank
-//properties of questions that include correct answer: true or false
-//buttons for answers and p for question text
-
-//question bank
-//question timer
-//next question timer
-
-//answering function, check for correct answer
-//game start function
-//time run out function
-//put question on screen function
-
-//create game screen after they hit start
-//create end game screen at the very end with summary
-//create answer screen functions for all three possibilities (out of time, correct, incorrect)
 var game = {
     questionTime: 20,
     correctAnswersCount: 0,
@@ -159,11 +143,9 @@ var game = {
     ],  
     questionDisplay: function() {
         this.currentQuestion = this.gameQuestions.splice(Math.floor(Math.random() * this.gameQuestions.length), 1)[0];
-        console.log(this.currentQuestion);
-        console.log(this.gameQuestions);
         this.questionTime = 20;
         this.answerTimer();
-        var questionText = $('<p>').html(this.currentQuestion.question);
+        var questionText = $('<p id="question-text">').html(this.currentQuestion.question);
         $('#game-content').append(questionText);
         var answerText = [];
         for (i = 0; i < this.currentQuestion.answers.length; i++) {
@@ -174,8 +156,13 @@ var game = {
         $('#game-content').append(answerText);
     },
     gameStart: function() {
+        $('#game-content').empty();
+        this.correctAnswersCount = 0;
+        this.incorrectAnswersCount = 0;
+        this.unansweredCount = 0;
         this.gameQuestions = this.questionBank.slice(0);
         $('#start-button').hide();
+        $('#reset-button').hide();
         this.questionDisplay();
     },
     answerTimer: function() {
@@ -189,30 +176,30 @@ var game = {
         }, 1000); 
     },
     timeRunOut: function() {
-        this.unanswered++;
+        this.unansweredCount++;
         clearInterval(this.timerInterval);
         $('#game-content').empty();
         this.findAnswer();
-        $('#game-content').append($('<p id="correct-answer">Time\'s Up! The Correct Answer Was ' + this.correctAnswer + '</p>'));
+        $('#game-content').append($('<p class="correct-answer">Time\'s Up! The Correct Answer Was ' + this.correctAnswer + '</p>'));
         $('#game-content').append($('<img class="img-fluid" id="picture" src="assets/images/' + this.currentQuestion.image + '" />'));
         this.nextQuestion();
     },
     answerSelect: function(button) {
         if (button.attr('correct') == 'true') {
-            this.correctAnswers++;
+            this.correctAnswersCount++;
             clearInterval(this.timerInterval);
             $('#game-content').empty();
             this.findAnswer();
-            $('#game-content').append($('<p id="correct-answer">Correct! ' + this.correctAnswer + '</p>'));
+            $('#game-content').append($('<p class="correct-answer">Correct! ' + this.correctAnswer + '</p>'));
             $('#game-content').append($('<img class="img-fluid" id="picture" src="assets/images/' + this.currentQuestion.image + '" />'));
             this.nextQuestion();
         }
         if (button.attr('correct') == 'false') {
-            this.incorrectAnswers++;
+            this.incorrectAnswersCount++;
             clearInterval(this.timerInterval);
             $('#game-content').empty();
             this.findAnswer();
-            $('#game-content').append($('<p id="correct-answer">Incorrect! The Correct Answer Was ' + this.correctAnswer + '</p>'));
+            $('#game-content').append($('<p class="correct-answer">Incorrect! The Correct Answer Was ' + this.correctAnswer + '</p>'));
             $('#game-content').append($('<img class="img-fluid" id="picture" src="assets/images/' + this.currentQuestion.image + '" />'));
             this.nextQuestion();
         }
@@ -227,14 +214,22 @@ var game = {
     nextQuestion: function() {
         setTimeout(function() {
             $('#game-content').empty();
-            game.questionDisplay();
-            if (game.gameQuestions.length === 0) {
-                endGame();
+            if (game.gameQuestions.length > 0) {
+                game.questionDisplay();
+            }
+            else if (game.gameQuestions.length === 0) {
+                game.endGame();
             }
         }, 1000 * 4);
     },
     endGame: function() {
-
+        clearInterval(this.timerInterval);
+        $('#game-content').append($('<p class="correct-answer">How Did We Do?</p>'));
+        $('#game-content').append($('<p class="correct-answer">Correct Answers: ' + this.correctAnswersCount + '</p>'));
+        $('#game-content').append($('<p class="correct-answer">Incorrect Answers: ' + this.incorrectAnswersCount + '</p>'));
+        $('#game-content').append($('<p class="correct-answer">Unanswered: ' + this.unansweredCount + '</p>'));
+        $('#game-content').append($('<button type="button" class="btn btn-primary btn-lg" id="reset-button">Click Here To Play Again</button>'));
+        $('#reset-button').on('click', game.gameStart.bind(game));
     }
 }
 

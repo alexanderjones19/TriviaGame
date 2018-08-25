@@ -1,57 +1,98 @@
-body {
+html, body {
+    height: 100%;
+}
+
+#content-container {
     background-image: url(../images/bananas.png);
+    height: 100%;
 }
 
 #game-title {
     font-family: 'Metamorphous', cursive;
-    font-size: 48px;
+    font-size: 72px;
     color: #40382D;
+    margin-top: 30px;
 }
 
 #game-card {
     background-color: #f5f1cb;
-    height: 740px;
+    height: 800px;
+    margin-top: 40px;
+    border: solid 3px #40382D;
 }
 
 #picture {
-    max-width: 500px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 40px;
 }
 
-#start-button {
+.start-reset-buttons {
     font-family: 'Ubuntu', sans-serif;
     color: #40382D;
     background-color: #c0e8e3;
     border: 3px solid #40382D;
+    width: 100%;
 }
 
-#start-button:hover {
+.start-reset-buttons:hover {
     background-color: #9EBFBB;
+    color: #40382D;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.start-reset-buttons:active {
+    background-color: #697F7D;
+    color: #f5f1cb;
+}
+
+#start-button {
+    margin-top: 200px;
+}
+
+#reset-button {
+    margin-top: 40px;
 }
 
 .answers {
     font-family: 'Ubuntu', sans-serif;
     color: #40382D;
     background-color: #c0e8e3;
+    border: 3px solid #40382D;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .answers:hover {
     background-color: #9EBFBB;
+    color: #40382D;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.answers:active {
+    background-color: #697F7D;
+    color: #f5f1cb;
 }
 
 #time-remaining {
     font-family: 'Ubuntu', sans-serif;
     color: #40382D;
     font-size: 19px;
+    margin-top: 40px;
 }
 
 .correct-answer {
     font-family: 'Ubuntu', sans-serif;
     color: #40382D;
-    font-size: 19px;
+    font-size: 24px;
+    margin-top: 40px;
 }
 
 #question-text {
     font-family: 'Ubuntu', sans-serif;
     color: #40382D;
     font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: 60px;
 }

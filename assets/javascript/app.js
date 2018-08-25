@@ -9,7 +9,7 @@ var game = {
     gameQuestions: [],
     questionBank: [
         {
-            question: 'What animal has the longest lifespan?',
+            question: 'Which animal has the longest lifespan?',
             answers: [
                 {
                     answer: 'Elephant',
@@ -28,7 +28,7 @@ var game = {
                     correct: false
                 }
             ],
-            image: 'giant-tortoise.jpg'
+            image: 'giant-tortoise.jpeg'
         },
         {
             question: 'What is the only mammal capable of true flight?',
@@ -75,7 +75,7 @@ var game = {
             image: 'crows.jpg'
         },
         {
-            question: 'Lupus is the latin name for what animal?',
+            question: 'Lupus is the latin name for which animal?',
             answers: [
                 {
                     answer: 'Leopard',
@@ -138,7 +138,7 @@ var game = {
                     correct: false
                 }
             ],
-            image: 'peregrinefalcon.jpg'
+            image: 'peregrine-falcon.jpg'
         }
     ],  
     questionDisplay: function() {
@@ -149,7 +149,7 @@ var game = {
         $('#game-content').append(questionText);
         var answerText = [];
         for (i = 0; i < this.currentQuestion.answers.length; i++) {
-            var newButton = $('<button type="button" class="btn btn-primary btn-lg answers"/>').html(this.currentQuestion.answers[i].answer);
+            var newButton = $('<button type="button" class="btn btn-lg answers"/>').html(this.currentQuestion.answers[i].answer);
             newButton.attr('correct', this.currentQuestion.answers[i].correct);
             answerText.push(newButton);
         }
@@ -228,7 +228,7 @@ var game = {
         $('#game-content').append($('<p class="correct-answer">Correct Answers: ' + this.correctAnswersCount + '</p>'));
         $('#game-content').append($('<p class="correct-answer">Incorrect Answers: ' + this.incorrectAnswersCount + '</p>'));
         $('#game-content').append($('<p class="correct-answer">Unanswered: ' + this.unansweredCount + '</p>'));
-        $('#game-content').append($('<button type="button" class="btn btn-primary btn-lg" id="reset-button">Click Here To Play Again</button>'));
+        $('#game-content').append($('<button type="button" class="btn btn-lg start-reset-buttons" id="reset-button">Click Here To Play Again</button>'));
         $('#reset-button').on('click', game.gameStart.bind(game));
     }
 }

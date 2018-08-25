@@ -224,7 +224,7 @@ var game = {
     },
     endGame: function() {
         clearInterval(this.timerInterval);
-        $('#game-content').append($('<p class="correct-answer">How Did We Do?</p>'));
+        $('#game-content').append($('<p class="correct-answer" id="summary">How Did We Do?</p>'));
         $('#game-content').append($('<p class="correct-answer">Correct Answers: ' + this.correctAnswersCount + '</p>'));
         $('#game-content').append($('<p class="correct-answer">Incorrect Answers: ' + this.incorrectAnswersCount + '</p>'));
         $('#game-content').append($('<p class="correct-answer">Unanswered: ' + this.unansweredCount + '</p>'));

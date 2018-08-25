@@ -47,11 +47,11 @@ html, body {
 }
 
 #start-button {
-    margin-top: 200px;
+    margin-top: 255px;
 }
 
 #reset-button {
-    margin-top: 40px;
+    margin-top: 90px;
 }
 
 .answers {
@@ -61,7 +61,7 @@ html, body {
     border: 3px solid #40382D;
     display: block;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .answers:hover {
@@ -79,14 +79,18 @@ html, body {
     font-family: 'Ubuntu', sans-serif;
     color: #40382D;
     font-size: 19px;
-    margin-top: 40px;
+    margin-top: 60px;
 }
 
 .correct-answer {
     font-family: 'Ubuntu', sans-serif;
     color: #40382D;
     font-size: 24px;
-    margin-top: 40px;
+    margin-top: 50px;
+}
+
+#summary {
+    margin-top: 80px;
 }
 
 #question-text {
